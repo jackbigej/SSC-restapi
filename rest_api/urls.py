@@ -21,8 +21,8 @@ from cm_leaderboard import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'school', views.SchoolViewSet)
-router.register(r'topalltime', views.TopAllTimeViewSet)
+router.register(r'school', views.SchoolViewSet, 'school')
+router.register(r'topalltime', views.TopAllTimeViewSet, 'topalltime')
 
 urlpatterns = [
 	path('', include(router.urls)),
