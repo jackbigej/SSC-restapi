@@ -141,8 +141,10 @@ def load_csv():
 			temp_school.save()
 
 		date_field = datetime.date(int(date[2]), int(date[1]), int(date[0]))
-		
+
 		temp_school = School.objects.get(name=school_name)
+
+
 		if not ClassMeeting.objects.filter(school=temp_school, date=date_field, question=question):
 			temp_class = ClassMeeting.objects.create(school=temp_school, date=date_field, question=question)
 			temp_class.save()

@@ -4,18 +4,18 @@ from django.db import models
 
 class School(models.Model):
 	name = models.CharField(max_length=100, unique=True)
-	total_cm = models.IntegerField()
-	year_cm = models.IntegerField()
-	term_cm = models.IntegerField()
-	month_cm = models.IntegerField()
-	first_post = models.DateField()
+	total_cm = models.IntegerField(default=0)
+	year_cm = models.IntegerField(default=0)
+	term_cm = models.IntegerField(default=0)
+	month_cm = models.IntegerField(default=0)
+	first_post = models.DateField(auto_now=True)
 
 	def school_sort(self):
 		return cm_count
 
 class ClassMeeting(models.Model):
 	question = models.CharField(max_length=1000)
-	date = models.DateField()
+	date = models.DateField(auto_now=True)
 	school = models.ForeignKey(School, on_delete=models.CASCADE)
 
 class leaderboard_lib():
